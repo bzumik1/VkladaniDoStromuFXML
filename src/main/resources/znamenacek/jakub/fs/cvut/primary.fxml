@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="znamenacek.jakub.fs.cvut.PrimaryController">
+  <children>
+    <MenuBar prefWidth="685.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Nastavení">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox fx:id="nextDataElementLabelHBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Následující: ">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="nextDataElementHBox" alignment="CENTER_LEFT" layoutX="253.0" prefHeight="100.0" prefWidth="947.0" spacing="20.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+            <VBox fx:id="root" alignment="CENTER" layoutY="79.0" prefHeight="253.0" prefWidth="640.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </opaqueInsets></VBox>
+            <HBox alignment="CENTER" layoutY="572.0" prefHeight="50.0" prefWidth="1200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#showTreeAtStart" text="start" />
+                  <Button fx:id="wholeButton" mnemonicParsing="false" onAction="#showWholeTree" text="celý strom" />
+                <Button fx:id="nextButton" mnemonicParsing="false" onAction="#showNextStep" text="následující" />
+                  <Button fx:id="previousButton" mnemonicParsing="false" onAction="#showPreviousStep" text="předchozí" />
+               </children>
+            </HBox>
+         </children></AnchorPane>
+  </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</VBox>

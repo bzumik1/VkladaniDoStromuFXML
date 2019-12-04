@@ -89,58 +89,46 @@ public class Tree {
      */
     public void add(DataElement dataElement){
         var currentNode = root;
+        if(currentNode.isFull()){ //if root if full, it is split, new root is set as new currentNode
+            split(currentNode);
+            currentNode = root;
+        }
         while(currentNode.hasChildren()){ //finds last correct node
             currentNode = currentNode.chooseChild(dataElement);
+            if(currentNode.isFull()){ //split node in way that is full, this can happen only once in way
+                split(currentNode);
+                currentNode = currentNode.getParent(); // it has to choose right way
+            }
         }
-        //current node is not full
-        if(!currentNode.isFull()){ //adds dataElement into correct node
-            currentNode.add(dataElement);
-        }
-        //current node is full, split algorithm have to start
-        else{
-            split(currentNode,dataElement);
-        }
+        currentNode.add(dataElement);
     }
 
 
-    private void split(Node thisNode, DataElement data) { // split the node
-        if (thisNode.isFull()) { //node has to be full to be split
-            //Node is root
-            if (!thisNode.hasParent()) {
-                root = new Node(thisNode.promote()); // create new node (root) with dataElement promote (middle dataElement from old Node is deleted)
-                depth++; //increase the depth of the tree
-                root.addChild(thisNode); //add this node as child of the new root
-                createRightNode(thisNode,root,data);
-            }
-            //Node is not root
-            else {
-                //Parent of thisNode is not full, so promote can be saved to it
-                var parent = thisNode.getParent();
-                if (!parent.isFull()) {
-                    parent.add(thisNode.promote()); //Promote is saved to parent
-                    createRightNode(thisNode,parent,data);
-                }
-                //Parent of thisNode is full, needs to be split -> recursive use of split function
-                else {
-                    split(parent, thisNode.promote()); //recursive call of split until it finds not full parent or reach root
-                    createRightNode(thisNode,parent,data);
-                }
-            }
+    private void split(Node thisNode) { // split the node
+        //Node is root
+        if (!thisNode.hasParent()) {
+            root = new Node(thisNode.promote()); // create new node (root) with dataElement promote (middle dataElement from old Node is deleted)
+            depth++; //increase the depth of the tree
+            root.addChild(thisNode); //add this node as child of the new root
+            createRightNode(thisNode,root);
         }
+        //Node is not root
         else {
-            throw new SplitException("The node you are trying to split is not full!");
+            //Parent of thisNode is not full, so promote can be saved to it
+            var parent = thisNode.getParent();
+            parent.add(thisNode.promote()); //Promote is saved to parent
+            createRightNode(thisNode,parent);
         }
     }
+    
 
-    private void createRightNode(Node thisNode, Node parent, DataElement data){
+    private void createRightNode(Node thisNode, Node parent){
         var rightNode = new Node(thisNode.deleteLastDataElement()); //Copy and delete last dataElement from current node
         parent.addChild(rightNode);//connect right node to parent
         //Connect Children to right node and disconnect them from thisNode
         for (int i = thisNode.numberOfChildren(); i > 2; i--) { //Maximal last two children from first Node are deleted and moved to new one
             rightNode.addChild(thisNode.deleteLastChild());
         }
-        //Add dataElement to tree
-        parent.chooseChild(data).add(data);
     }
 
 

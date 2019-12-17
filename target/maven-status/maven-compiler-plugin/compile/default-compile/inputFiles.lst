@@ -9,7 +9,6 @@
 /Users/jakub/Documents/GitHub/VkladaniDoStromuFXML/src/main/java/myExceptions/NodeHasChildrenException.java
 /Users/jakub/Documents/GitHub/VkladaniDoStromuFXML/src/main/java/algorithm/Tree.java
 /Users/jakub/Documents/GitHub/VkladaniDoStromuFXML/src/main/java/graphicalUserInterface/TreeGUI.java
-/Users/jakub/Documents/GitHub/VkladaniDoStromuFXML/src/main/java/graphicalUserInterface/FamilyTreeGUI.java
 /Users/jakub/Documents/GitHub/VkladaniDoStromuFXML/src/main/java/myExceptions/ChoseChildException.java
 /Users/jakub/Documents/GitHub/VkladaniDoStromuFXML/src/main/java/graphicalUserInterface/NodeGUI.java
 /Users/jakub/Documents/GitHub/VkladaniDoStromuFXML/src/main/java/myExceptions/SplitException.java

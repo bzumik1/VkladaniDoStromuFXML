@@ -6,7 +6,6 @@ myExceptions/ChoseChildException.class
 graphicalUserInterface/DataElementGUI.class
 myExceptions/DeleteLastChildException.class
 znamenacek/jakub/fs/cvut/App.class
-graphicalUserInterface/FamilyTreeGUI.class
 myExceptions/PromoteException.class
 algorithm/DataElement.class
 module-info.class

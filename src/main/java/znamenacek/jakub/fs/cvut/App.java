@@ -16,7 +16,7 @@ public class App extends Application {
     private static Tree tree;
     private static int[]  dataElementArray ={3,7,4,9,10,0,5,6,8,2,1,20,15,14,12}; //RENAME TO IDENTIFIER ARRAY?
     private static int currentState =0;
-    public static Scene scene; //SHOULD IT BE PUBLIC??
+    public static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -25,19 +25,16 @@ public class App extends Application {
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public static void main(String[] args) {
+        launch();
     }
+
+
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
-    public static void main(String[] args) {
-        launch();
-    }
-
 
     public static Tree getTree() {
         return tree;

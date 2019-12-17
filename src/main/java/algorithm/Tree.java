@@ -120,7 +120,7 @@ public class Tree {
             createRightNode(thisNode,parent);
         }
     }
-    
+
 
     private void createRightNode(Node thisNode, Node parent){
         var rightNode = new Node(thisNode.deleteLastDataElement()); //Copy and delete last dataElement from current node
